@@ -1,7 +1,6 @@
 from platform import system
 
-from flask import Flask
-
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
@@ -17,8 +16,16 @@ patients = [x.strip() for x in patients]
 
 
 @app.route('/', methods=['GET'])
-def home():
-    return 'Server is running at http://127.0.0.1:5000/', 200
+def it_works():
+    return jsonify({'It works': 'Server is running at http://127.0.0.1:5000'}), 200
+
+
+@app.route('/patients', methods=['GET'])
+def all_patients():
+    if patients:
+        return jsonify({'patients': patients}), 200
+    else:
+        return jsonify({'ERROR': 'The patients list is empty'})
 
 
 if __name__ == '__main__':
