@@ -49,7 +49,7 @@ def all_patients():
         return jsonify({'Patients': patients,
                         'Number of Patients': len(patients)}), 200
     else:
-        return jsonify({'ERROR': 'The patients list is empty'})
+        return jsonify({'ERROR': 'The patients list is empty'}), 404
 
 
 @app.route('/patients/<string:letter>')
@@ -62,7 +62,7 @@ def patients_autocomplete(letter):
         else:
             return jsonify({'ERROR': 'It was not found any patient that starts with {}'.format(letter)})
     else:
-        return jsonify({'ERROR': 'The patients list is empty'})
+        return jsonify({'ERROR': 'The patients list is empty'}), 404
 
 
 if __name__ == '__main__':
