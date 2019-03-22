@@ -59,3 +59,13 @@ Response:
 
 Boa Sorte,  
 Equipe iClinic DEV.
+
+## Instruções
+- A API está rodando em http://127.0.0.1:5000 e as rotas são as seguinte:
+    - /: nessa rota são listadas todas as demais rotas
+    - /patients: essa rota redireciona para a rota /patients/
+    - /patients/: essa rota traz a quantidade de pacientes cadastrados e seus nomes
+    - /patients/<query>: essa rota traz a quantidade e o nome dos pacientes cadastrados de acordo com a query. 
+    Exemplo: /patients/lu, traz a quantidade e os nomes dos pacientes que têm o nome começado em 'lu'. Essa rota também
+    tratada para não ser case sensitive. 
+    - /status: essa rota traz o status da API
