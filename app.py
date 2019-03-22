@@ -35,7 +35,7 @@ def hlp():
 @app.route('/status', methods=['GET'])
 def status():
     return jsonify({'Status': 'OK - 200',
-                   'It is working': 'Server is running at http://127.0.0.1:5000'}), 200
+                    'It is working': 'Server is running at http://127.0.0.1:5000'}), 200
 
 
 @app.route('/patients')
@@ -60,7 +60,7 @@ def patients_autocomplete(letter):
             return jsonify({'Patients': autocomplete,
                             'Number of Patients': len(autocomplete)}), 200
         else:
-            return jsonify({'ERROR': 'It was not found any patient that starts with {}'.format(letter)})
+            return jsonify({'ERROR': 'It was not found any patient that starts with {}'.format(letter)}), 404
     else:
         return jsonify({'ERROR': 'The patients list is empty'}), 404
 
