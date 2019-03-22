@@ -55,7 +55,7 @@ def all_patients():
 @app.route('/patients/<string:letter>')
 def patients_autocomplete(letter):
     if patients:
-        autocomplete = Tree.autocomplete(letter)
+        autocomplete = Tree.autocomplete(letter.lower())
         if autocomplete:
             return jsonify({'Patients': autocomplete,
                             'Number of Patients': len(autocomplete)}), 200
@@ -66,4 +66,4 @@ def patients_autocomplete(letter):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
